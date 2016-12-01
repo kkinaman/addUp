@@ -13,7 +13,7 @@ const FieldGroup = ({ id, label, ...props }) => {
       <FormControl {...props} />
     </FormGroup>
   );
-}
+};
 
 class AddCauseModal extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class AddCauseModal extends Component {
       showCauseModal: false,
       addCustomCauseFields: {},
       causePrivacy: true,
-    }
+    };
 
     this.openCause = this.openCause.bind(this);
     this.closeCause = this.closeCause.bind(this);
@@ -31,16 +31,17 @@ class AddCauseModal extends Component {
   }
 
   openCause () {
-    this.setState({ showCauseModal: true})
+    this.setState({ showCauseModal: true});
   }
 
   closeCause () {
-    this.setState({ showCauseModal: false})
+    this.setState({ showCauseModal: false});
   }
 
   onFieldChange(type, e) {
     var fields = this.state.addCustomCauseFields;
     if (typeof e.target.value === 'string') {
+      // eslint-disable-next-line 
       fields[type] = e.target.value.replace("'", "");
     } else {
       fields[type] = e.target.value;
@@ -64,10 +65,10 @@ class AddCauseModal extends Component {
           axios.post(server + '/api/charities/search', {
             'id_owner': fields.id_owner,
             'type': 'Custom Cause'
-            })
-            .then(response => {
-              this.props.setCauses(response.data);
-            });
+          })
+          .then(response => {
+            this.props.setCauses(response.data);
+          });
         });
     } else {
       var charityID = this.props.charity.id;
@@ -76,10 +77,10 @@ class AddCauseModal extends Component {
         .then(res => {
           axios.post(server + '/api/customCause/search', {
             'id': charityID
-            })
-            .then(response => {
-              this.props.getCharityInfo();
-            });
+          })
+          .then(response => {
+            this.props.getCharityInfo();
+          });
         });
     }
     this.closeCause();
