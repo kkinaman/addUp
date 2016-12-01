@@ -42,9 +42,7 @@ npm install
 bower install
 ```
 
-### Setting Up Dev Mode
-![Screenshot](https://github.com/beltless-trenchcoats/addUp/blob/master/client/assets/images/dev-gif2.gif)
-
+[![startDevMode](http://gfycat.com/MilkyOnlyAyeaye)]
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
